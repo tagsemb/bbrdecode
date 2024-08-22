@@ -26,7 +26,7 @@ namespace BBRDecode
         static void Main(string[] args)
         {
             // Specify the path to your base64-encoded file
-            string filePath = "../../data/replays/2024-02-01_16-56_1-3-0-0_e1f6146a-c122-11ee-a745-02000090a64f.bbr";
+            string filePath = "../../data/replays/2024-08-19_18-33_1-4-0-0_7c511a4d-5e59-11ef-be7b-bc24112ec32e.bbr";
 
             try
             {
@@ -43,7 +43,11 @@ namespace BBRDecode
                 string decompressedString = System.Text.Encoding.UTF8.GetString(decompressed);
 
                 // Display the decoded string
-                Console.WriteLine(decompressedString);
+                // Console.WriteLine(decompressedString);
+
+                string outPath = Directory.GetCurrentDirectory() + "/out.xml";
+                System.IO.File.WriteAllText(outPath, decompressedString);
+                Console.WriteLine("XML written to " + outPath);
             }
             catch (Exception ex)
             {
